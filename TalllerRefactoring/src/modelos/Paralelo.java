@@ -17,14 +17,6 @@ public class Paralelo {
         this.numero = numero;
     }
 
-    public Materia getMateria() {
-        return materia;
-    }
-
-    public void setMateria(Materia materia) {
-        this.materia = materia;
-    }
-
     public Profesor getProfesor() {
         return profesor;
     }

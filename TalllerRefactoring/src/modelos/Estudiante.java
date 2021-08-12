@@ -8,6 +8,11 @@ public class Estudiante{
     public String nombre;
     public String apellido;
     public ArrayList<Paralelo> paralelos;
+    public double notaGeneral;
+    public double notaTotal;
+    public String codigoMateria;
+    public String nombreMateria;
+
 
     public Estudiante(String matricula, String nombre, String apellido) {
         this.matricula = matricula;
@@ -43,12 +48,21 @@ public class Estudiante{
         this.apellido = apellido;
     }
     
+    public void setCodigoMateria(String codigoMateria){ this.codigoMateria = codigoMateria; }
+    
+    public void getCodigoMateria() { return codigoMateria; }
+    
+    public void setNombreMateria(String nombreMateria) { this.nombreMateria = nombreMateria; }
+    
+    public void getNombreMateria() { return nombreMateria; }
+    
+    
   
     
 
     //Calcula y devuelve la nota inicial contando examen, deberes, lecciones y talleres. El teorico y el practico se calcula por parcial.
     public double CalcularNota(Paralelo p, double  nexamen, double ndeberes, double nlecciones, double ntalleres){
-        double notaGeneral=0;
+        notaGeneral=0;
         for(Paralelo par:paralelos){
             if(p.equals(par)){
                 double notaTeorico=(nexamen+ndeberes+nlecciones)*0.80;
@@ -61,7 +75,7 @@ public class Estudiante{
     
     //Calcula y devuelve la nota inicial contando examen, deberes, lecciones y talleres. Esta nota es solo el promedio de las dos calificaciones anteriores.
     public double CalcularNotaTotal(Paralelo p){
-        double notaTotal=0;
+        notaTotal=0;
         for(Paralelo par:paralelos){
             if(p.equals(par)){
                 notaTotal=(p.getMateria().notaInicial+p.getMateria().notaFinal)/2;
